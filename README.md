@@ -1,7 +1,7 @@
 GMiner was created by a Russian group of specialists in the field of high performance computing and cryptography.<br/>
 The first version of GMiner was released on September 21, 2018 and was received quite warmly among users.<br/>
 Thanks to its unique developments and stability, in just six months, the miner became a favorite on the Equihash algorithms.<br/>
-The miner is focused on NVIDIA and AMD platforms and supports most popular algorithms such as: Ethash, ProgPoW, KAWPOW, Equihash, CuckooCycle.<br/>
+The miner is focused on NVIDIA and AMD platforms and supports most popular algorithms such as: Ethash, ProgPoW, KAWPOz, Equihash, CuckooCycle.<br/>
 GMiner maintains a leading position in the mining of such coins as Beam, Grin, Cortex, Bitcoin Gold.<br/>
 In 2020, the miner added support for Ethash, ProgPoW and KAWPOW algorithms with high performance relative to competitors.<br/>
 The development team never stops at what has been achieved and achieves the maximum performance of the algorithms with the minimum power consumption, it is these qualities that distinguish GMiner from the competitors and win the hearts of users.<br/>
@@ -34,7 +34,7 @@ The development team never stops at what has been achieved and achieves the maxi
 ```--help``` or shortly ```-h``` - display available options<br/>
 ```--version``` or shortly ```-v``` - print program version<br/>
 ```--user_id``` - print user ID<br/>
-```--algo``` or shortly ```-a``` - mining algorithm (for example: 'ethash', 'kawpow', 'cuckatoo32', 'beamhash')<br/>
+```--algo``` or shortly ```-a``` - mining algorithm (for example: 'ethash', 'kawpoz', 'cuckatoo32', 'beamhash')<br/>
 ```--list_devices``` - list devices available for mining<br/>
 ```--contest_wallet``` - Ethash wallet, parameter is required to participate in contest<br/>
 ```--server``` or shortly ```-s``` - mining pool address (for example: 'eu.btgpool.pro', 'eu1.zhash.pro')<br/>
@@ -102,19 +102,19 @@ The development team never stops at what has been achieved and achieves the maxi
 ```--maintenance_fee``` - maintenance fee percent<br/>
 
 Parameters dag_mode, safe_dag, dag_limit, kernel, mt, fan, pl, cclock, cvddc, mclock, lock_voltage, lock_cclock, tfan, templimit, templimit_mem, intensity, lhr, lhr_tune, lhr_autotune, lhr_mode can be specified with one parameter for all devices:<br/>
-```miner --algo ethash --server eth.2miners.com:2020 --user 0x5218597d48333d4a70cce91e810007b37e2937b5.worker1 --kernel 0 --templimit 80 --dag_mode 0```<br/>
+```miner --algo ethash --server eth.2miners.com:2020 --user 0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8.worker1 --kernel 0 --templimit 80 --dag_mode 0```<br/>
 or for each device separately, if we have 3 devices:<br/>
-```miner --algo ethash --server eth.2miners.com:2020 --user 0x5218597d48333d4a70cce91e810007b37e2937b5.worker1 --kernel 0 1 1 --templimit 80 70 90 --dag_mode 0 1 2```<br/>
+```miner --algo ethash --server eth.2miners.com:2020 --user 0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8.worker1 --kernel 0 1 1 --templimit 80 70 90 --dag_mode 0 1 2```<br/>
 
 Miner supports failover pools, if the main pool is not available, the miner switches to the failover pools, after the main pool is available, the miner will switch to it, example:<br/>
-```miner --algo ethash --server eth.2miners.com:2020 --user 0x5218597d48333d4a70cce91e810007b37e2937b5.worker1 --server eu1.ethermine.org:4444 --user 0x5218597d48333d4a70cce91e810007b37e2937b5.worker1 --server asia.sparkpool.com:3333 --user 0x5218597d48333d4a70cce91e810007b37e2937b5.worker1```<br/>
+```miner --algo ethash --server eth.2miners.com:2020 --user 0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8.worker1 --server eu1.ethermine.org:4444 --user 0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8.worker1 --server asia.sparkpool.com:3333 --user 0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8.worker1```<br/>
 eth.2miners.com - main pool<br/>
 eu1.ethermine.org and asia.sparkpool.com - failover pools<br/>
 
 Miner supports charging of maintenance fee (maintenance fee charging after charging developers fee), example:<br/>
-```miner --algo ethash --server eth.2miners.com:2020 --user 0x5218597d48333d4a70cce91e810007b37e2937b5.worker1 --maintenance_server eth.2miners.com:2020 --maintenance_user 0x270686d8A5c33Ba2E584EF8e94128A07B57BcB2A --maintenance_fee 20```<br/>
+```miner --algo ethash --server eth.2miners.com:2020 --user 0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8.worker1 --maintenance_server eth.2miners.com:2020 --maintenance_user 0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8 --maintenance_fee 20```<br/>
 eth.2miners.com:2020 - maintenance fee pool<br/>
-0x270686d8A5c33Ba2E584EF8e94128A07B57BcB2A - maintenance fee wallet<br/>
+0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8 - maintenance fee wallet<br/>
 20 - maintenance fee percent<br/>
 
 Miner resets mt, cclock, cvddc, mclock parameters to default values while DAG generation to avoid errors<br/>
@@ -149,28 +149,28 @@ For Ethash and Etchash algorithms, there are 2 options for stratum protocol (pro
 ```miner --algo ethash --server daggerhashimoto.usa.nicehash.com:3353 --user 3LsTTSsSy17xuoShcMHuRgGBxKn1AHgeVN --proto stratum```<br/>
 
 If you have a mixed rig, you can run the miner only on CUDA devices:<br/>
-```miner --algo ethash --server eth.2miners.com:2020 --user 0x5218597d48333d4a70cce91e810007b37e2937b5.worker1 --opencl 0```<br/>
+```miner --algo ethash --server eth.2miners.com:2020 --user 0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8.worker1 --opencl 0```<br/>
 or only on OpenCL devices:<br/>
-```miner --algo ethash --server eth.2miners.com:2020 --user 0x5218597d48333d4a70cce91e810007b37e2937b5.worker1 --cuda 0```<br/>
+```miner --algo ethash --server eth.2miners.com:2020 --user 0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8.worker1 --cuda 0```<br/>
 or on devices of your choice, such as GPU0 GPU2 and GPU4:<br/>
-```miner --algo ethash --server eth.2miners.com:2020 --user 0x5218597d48333d4a70cce91e810007b37e2937b5.worker1 --devices 0 2 4```<br/>
+```miner --algo ethash --server eth.2miners.com:2020 --user 0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8.worker1 --devices 0 2 4```<br/>
 the list of available GPUs can be seen by calling the following command:<br/>
 ```miner --list_devices```<br/>
 
 For Ethash and Etchash algorithms there is a possibility of manual selection of kernels:<br/>
-```miner --algo ethash --server eth.2miners.com:2020 --user 0x5218597d48333d4a70cce91e810007b37e2937b5.worker1 --kernel 0 2 3```<br/>
+```miner --algo ethash --server eth.2miners.com:2020 --user 0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8.worker1 --kernel 0 2 3```<br/>
 ```--kernel 0 2 3``` - kernel numbers for each device, 0 - auto kernel selection for GPU0, kernel #2 for GPU1, kernel #3 for GPU2<br/>
 
 Also you can select one kernel for all devices:<br/>
-```miner --algo ethash --server eth.2miners.com:2020 --user 0x5218597d48333d4a70cce91e810007b37e2937b5.worker1 --kernel 5```<br/>
+```miner --algo ethash --server eth.2miners.com:2020 --user 0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8.worker1 --kernel 5```<br/>
 ```--kernel 5``` select kernel #5 for all devices<br/>
 
 To set temperature limits on GPU0 GPU2 and GPU4, upon reaching which mining on this device will pause until it cools down:<br/>
-```miner --algo ethash --server eth.2miners.com:2020 --user 0x5218597d48333d4a70cce91e810007b37e2937b5.worker1 --devices 0 2 4 --templimit 80 70 65```<br/>
+```miner --algo ethash --server eth.2miners.com:2020 --user 0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8.worker1 --devices 0 2 4 --templimit 80 70 65```<br/>
 where 80 is the temperature limit for GPU0, 70 is the temperature limit for GPU2, 65 is the temperature limit for GPU4<br/>
 
 To save the miner's logs to a file for later analysis:<br/>
-```miner --algo ethash --server eth.2miners.com:2020 --user 0x5218597d48333d4a70cce91e810007b37e2937b5.worker1 --logfile c:\log.txt```<br/>
+```miner --algo ethash --server eth.2miners.com:2020 --user 0x589465560A09d11F0eA0114C6C32B02DC8AfD5a8.worker1 --logfile c:\log.txt```<br/>
 where "c:\log.txt" is the path to the file with the miner's logs<br/>
 
 # Supported algorithms and developer commission:
